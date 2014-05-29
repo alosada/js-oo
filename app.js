@@ -11,8 +11,18 @@ function Game(){
 Game.prototype = {
   initialize: function( player1, player2 ){
     this.player1 =  player1
+    this.player1.number = 1
     this.player2 = player2
-    console.log( this.player1, this.player2 )
+    this.player2.number = 2
+    this.bindEventListeners()
+  },
+
+  bindEventListeners: function(){
+    document.addEventListener( 'keyup', this.updatePlayer )
+  },
+
+  updatePlayer: function(){
+    console.log( 'derp' )
   }
 }
 
@@ -26,4 +36,14 @@ Player.prototype = {
   }
 }
 
+function View(){
+}
+
+View.prototype = {
+  renderPlayer: function( player ){
+    var position = player.position
+    var track = document.getElementById( player.number )
+    debugger
+  }
+}
 
